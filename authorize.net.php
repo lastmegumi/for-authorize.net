@@ -4,10 +4,11 @@
 	use net\authorize\api\contract\v1 as AnetAPI;
 	use net\authorize\api\controller as AnetController;
     // define("AUTHORIZENET_LOG_FILE", "phplog");
-class card{
+class authorize_net{
 	private $ID = "your_id";
 	private $KEY = "your_key";
 	private $batch_id = "8855898";
+
 	public $status = array("authorizedPendingCapture"				=> "已授权，等待卖家收款",
 							"capturedPendingSettlement"				=> "已收款，正在处理中",
 							"communicationError"					=> "交易出错",
@@ -109,10 +110,6 @@ class card{
 			return $this->$func();
 		}
 		return false;
-	}
-
-	function form(){
-		return '123';
 	}
 
 	function chargeCreditCard($info, $amount){
